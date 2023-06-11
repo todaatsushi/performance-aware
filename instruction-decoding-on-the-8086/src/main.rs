@@ -27,7 +27,7 @@ fn main() {
 
         let mod_bits = mods::get_mod(second);
         match mod_bits {
-            mods::ModType::RegisterToRegister => {
+            mods::ModType::RegisterMode(mods::RegisterMode::NoDisplacement) => {
                 let reg = reg::get_reg(second, &w);
                 let rm = reg::get_rm(second, &w);
 
