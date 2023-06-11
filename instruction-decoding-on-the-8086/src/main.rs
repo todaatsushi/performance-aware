@@ -34,6 +34,7 @@ fn main() {
                 let (dest, source) = reg::order_by_destination(reg, rm, &d);
                 println!("{} {}, {}", op, dest, source);
             }
+            _ => panic!("Not implemented"),
         }
     }
 }
