@@ -18,9 +18,10 @@ fn main() {
 
     println!("\nbits 16\n");
 
-    for bytes in contents.chunks(2) {
-        let first = bytes[0];
-        let second = bytes[1];
+    let mut i = 0 as usize;
+    while i < contents.len() {
+        let first = contents[i];
+        let second = contents[i + 1];
 
         let op = ops::get_operation(first);
         let (d, w) = dw::get_dw_bits(first);
@@ -33,6 +34,7 @@ fn main() {
 
                 let (dest, source) = reg::order_by_destination(reg, rm, &d);
                 println!("{} {}, {}", op, dest, source);
+                i += 2;
             }
             _ => panic!("Not implemented"),
         }
